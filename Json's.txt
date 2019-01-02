@@ -1,0 +1,17 @@
+//Post crear proyecto
+{
+  "nombre": "Proyecto Daniele",
+  "descripcion": "Web applications page",
+  "fecha": "2018-12-20T17:14:01.927Z",
+  "url": "https://www.itrebolsoft.com/"
+}
+
+//Put actualizar proyecto
+76B29F20-F324-4A3D-A20D-926FB07A7B5F
+{
+  "nombre": "Proyecto itrebolsoft"
+  "descripcion": "Web applications page",
+  "fecha": "2018-12-20T17:14:01.927Z",
+  "url": "https://www.itrebolsoft.com/"
+}
+
