@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CodiJobServices.Model.Repositories;
+using Application.DTOs;
+using Application.IServices;
+using Domain;
+using Domain.IRepositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication_CodiJob.Model.CodiJobDb;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,56 +16,63 @@ namespace WebApplication_CodiJob.Controllers
     [Route("api/[controller]")]
     public class ProyectoController : Controller
     {
-        public IProyectoRepository repository;
+        public IProyectoService Service;
         //Creando un constructor
-        public ProyectoController(IProyectoRepository repo)
+        public ProyectoController(IProyectoService service)
         {
-            this.repository = repo; //con esto, tenemos acceso a los repositorios
+            this.Service = service; //con esto, tenemos acceso a los repositorios
         }
 
-        // GET: api/<controller>
+        //GET: api/<controller>
         [HttpGet]
-        public IQueryable<Tproyectos> Get()
+        [Authorize]
+        public IList<ProyectoDTO> Get()
         {
-            return repository.Items;
+            return Service.GetAll();
         }
 
         // GET api/<controller>/5
-        [HttpGet("{ProyectoId}")]
-        public Tproyectos Get(Guid ProyectoId)
+        [HttpGet("{ProyId}")]
+        public ProyectoDTO Get(Guid ProyId)
         {
-            return repository.Items.Where(p => p.ProyectoId == ProyectoId).FirstOrDefault();
+            return Service.GetAll().Where(p => p.ProyId == ProyId).FirstOrDefault();
         }
 
         // POST api/<controller>
         [HttpPost]
-        public IActionResult Post([FromBody]Tproyectos proyecto)
+        //public IActionResult Post([FromBody]TProyecto proyecto)
+        public IActionResult Post([FromBody] ProyectoDTO proyecto)
         {
-            repository.Save(proyecto);
+            if (!ModelState.IsValid)
+            {
+                throw new Exception("El modelo no es valido");
+            }
+            //repository.Save(proyecto);
+            Service.Insert(proyecto);
             return Ok(true); //ok es codigo 200
         }
 
         // PUT api/<controller>/5
-        [HttpPut("{ProyectoId}")]
-        public IActionResult Put(Guid ProyectoId, [FromBody]Tproyectos proyecto)
+        [HttpPut("{ProyId}")]
+        public IActionResult Put(Guid ProyectoId, [FromBody]ProyectoDTO proyecto)
         {
-            proyecto.ProyectoId = ProyectoId;
-            repository.Save(proyecto);
+            proyecto.ProyId = ProyectoId;
+            Service.Insert(proyecto);
             return Ok(true);
         }
 
         // DELETE api/<controller>/5
-        [HttpDelete("{ProyectoId}")]
+        [HttpDelete("{ProyId}")]
         public IActionResult Delete(Guid ProyectoId)
         {
-            repository.Delete(ProyectoId);
+            Service.Delete(ProyectoId);
             return Ok(200);
         }
 
-        [HttpGet("{pageSize}/{page}")]
-        public IQueryable<Tproyectos> Get(int pageSize, int page)
-        {
-            return repository.FilterProyectos(pageSize, page);
-        }
+        //[HttpGet("{pageSize}/{page}")]
+        //public IQueryable<TProyecto> Get(int pageSize, int page)
+        //{
+        //    return Service.FilterProyectos(pageSize, page);
+        //}
     }
 }

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Internal Server Error</title>
+        <style>
+            body {
+    font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
+    font-size: .813em;
+    color: #222;
+    background-color: #fff;
+}
+
+h1, h2, h3, h4, h5 {
+    /*font-family: 'Segoe UI',Tahoma,Arial,Helvetica,sans-serif;*/
+    font-weight: 100;
+}
+
+h1 {
+    color: #44525e;
+    margin: 15px 0 15px 0;
+}
+
+h2 {
+    margin: 10px 5px 0 0;
+}
+
+h3 {
+    color: #363636;
+    margin: 5px 5px 0 0;
+}
+
+code {
+    font-family: Consolas, "Courier New", courier, monospace;
+}
+
+body .titleerror {
+    padding: 3px 3px 6px 3px;
+    display: block;
+    font-size: 1.5em;
+    font-weight: 100;
+}
+
+body .location {
+    margin: 3px 0 10px 30px;
+}
+
+#header {
+    font-size: 18px;
+    padding: 15px 0;
+    border-top: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+    margin-bottom: 0;
+}
+
+    #header li {
+        display: inline;
+        margin: 5px;
+        padding: 5px;
+        color: #a0a0a0;
+        cursor: pointer;
+    }
+
+    #header .selected {
+        background: #44c5f2;
+        color: #fff;
+    }
+
+#stackpage ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    /*border-bottom: 1px #ddd solid;*/
+}
+
+#stackpage .details {
+    font-size: 1.2em;
+    padding: 3px;
+    color: #000;
+}
+
+#stackpage .stackerror {
+    padding: 5px;
+    border-bottom: 1px #ddd solid;
+}
+
+
+#stackpage .frame {
+    padding: 0;
+    margin: 0 0 0 30px;
+}
+
+    #stackpage .frame h3 {
+        padding: 2px;
+        margin: 0;
+    }
+
+#stackpage .source {
+    padding: 0 0 0 30px;
+}
+
+    #stackpage .source ol li {
+        font-family: Consolas, "Courier New", courier, monospace;
+        white-space: pre;
+        background-color: #fbfbfb;
+    }
+
+#stackpage .frame .source .highlight li span {
+    color: #FF0000;
+}
+
+#stackpage .source ol.collapsible li {
+    color: #888;
+}
+
+    #stackpage .source ol.collapsible li span {
+        color: #606060;
+    }
+
+.page table {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0 0 20px;
+}
+
+.page th {
+    vertical-align: bottom;
+    padding: 10px 5px 5px 5px;
+    font-weight: 400;
+    color: #a0a0a0;
+    text-align: left;
+}
+
+.page td {
+    padding: 3px 10px;
+}
+
+.page th, .page td {
+    border-right: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+    border-left: 1px transparent solid;
+    border-top: 1px transparent solid;
+    box-sizing: border-box;
+}
+
+    .page th:last-child, .page td:last-child {
+        border-right: 1px transparent solid;
+    }
+
+.page .length {
+    text-align: right;
+}
+
+a {
+    color: #1ba1e2;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #13709e;
+        text-decoration: underline;
+    }
+
+.showRawException {
+    cursor: pointer;
+    color: #44c5f2;
+    background-color: transparent;
+    font-size: 1.2em;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    border: 0;
+    padding: 0;
+}
+
+.rawExceptionStackTrace {
+    font-size: 1.2em;
+}
+
+.rawExceptionBlock {
+    border-top: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+}
+
+.showRawExceptionContainer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.expandCollapseButton {
+    cursor: pointer;
+    float: left;
+    height: 16px;
+    width: 16px;
+    font-size: 10px;
+    position: absolute;
+    left: 10px;
+    background-color: #eee;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+        </style>
+    </head>
+    <body>
+        <h1>An unhandled exception occurred while processing the request.</h1>
+            <div class="titleerror">NullReferenceException: Object reference not set to an instance of an object.</div>
+                <p class="location">Infraestructure.Transversal.Authentication.UserService.AuthenticateAsync(string username, string password) in <code title="D:\iTrebolSoft\WebApplication_CodiJob\Infraestructure.Transversal\Authentication\UserService.cs">UserService.cs</code>, line 45</p>
+        <ul id="header">
+            <li id="stack" tabindex="1" class="selected">
+                Stack
+            </li>
+            <li id="query" tabindex="2">
+                Query
+            </li>
+            <li id="cookies" tabindex="3">
+                Cookies
+            </li>
+            <li id="headers" tabindex="4">
+                Headers
+            </li>
+        </ul>
+
+        <div id="stackpage" class="page">
+            <ul>
+                                    <li>
+                        <h2 class="stackerror">NullReferenceException: Object reference not set to an instance of an object.</h2>
+                        <ul>
+                            <li class="frame" id="frame1">
+                                    <h3>Infraestructure.Transversal.Authentication.UserService.AuthenticateAsync(string username, string password) in <code title="D:\iTrebolSoft\WebApplication_CodiJob\Infraestructure.Transversal\Authentication\UserService.cs">UserService.cs</code></h3>
+
+                                    <button class="expandCollapseButton" data-frameId="frame1">+</button>
+                                    <div class="source">
+                                            <ol start="39" class="collapsible">
+                                                    <li><span>                {</span></li>
+                                                    <li><span>                    var UserDTO = ServiceUsuarioPerfil.GetUsuarioPerfil(Guid.Parse(Iuser.Id));</span></li>
+                                                    <li><span></span></li>
+                                                    <li><span>                    //Add WebToken after Login sucsessfully</span></li>
+                                                    <li><span>                    var tokenHandler = new JwtSecurityTokenHandler();</span></li>
+                                                    <li><span>                    var key = Encoding.ASCII.GetBytes(_appSettings.Secret);</span></li>
+                                            </ol>
+
+                                        <ol start="45" class="highlight">
+                                                <li><span>                    var tokenDescriptor = new SecurityTokenDescriptor</span></li>
+                                        </ol>
+
+                                            <ol start='46' class="collapsible">
+                                                    <li><span>                    {</span></li>
+                                                    <li><span>                        Subject = new ClaimsIdentity(new Claim[]</span></li>
+                                                    <li><span>                    {</span></li>
+                                                    <li><span>                        new Claim(ClaimTypes.Name, UserDTO.UsuperId.ToString())</span></li>
+                                                    <li><span>                    }),</span></li>
+                                                    <li><span>                        Expires = DateTime.UtcNow.AddDays(7),</span></li>
+                                            </ol>
+                                    </div>
+                            </li>
+                            <li class="frame" id="frame2">
+                                    <h3>CodiJobServices2.Controllers.AuthenticationController.LogIn(LoginDTO login) in <code title="D:\iTrebolSoft\WebApplication_CodiJob\WebApplication_CodiJob\Controllers\AuthenticationController.cs">AuthenticationController.cs</code></h3>
+
+                                    <button class="expandCollapseButton" data-frameId="frame2">+</button>
+                                    <div class="source">
+                                            <ol start="15" class="collapsible">
+                                                    <li><span></span></li>
+                                                    <li><span>        [HttpPost(&quot;LogIn&quot;)]</span></li>
+                                                    <li><span>        public async Task&lt;IActionResult&gt; LogIn([FromBody]LoginDTO login)</span></li>
+                                                    <li><span>        {</span></li>
+                                                    <li><span>            if (ModelState.IsValid)</span></li>
+                                                    <li><span>            {</span></li>
+                                            </ol>
+
+                                        <ol start="21" class="highlight">
+                                                <li><span>                var user = await UserService.AuthenticateAsync(login.UserName, login.Password);</span></li>
+                                        </ol>
+
+                                            <ol start='22' class="collapsible">
+                                                    <li><span>                if (user == null)</span></li>
+                                                    <li><span>                    return BadRequest(new { message = &quot;Username or password is incorrect&quot; });</span></li>
+                                                    <li><span>                return Ok(user);</span></li>
+                                                    <li><span>            }</span></li>
+                                                    <li><span>            else</span></li>
+                                                    <li><span>            {</span></li>
+                                            </ol>
+                                    </div>
+                            </li>
+                            <li class="frame" id="frame3">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor&#x2B;TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, object controller, object[] arguments)</h3>
+
+                            </li>
+                            <li class="frame" id="frame4">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()</h3>
+
+                            </li>
+                            <li class="frame" id="frame5">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()</h3>
+
+                            </li>
+                            <li class="frame" id="frame6">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)</h3>
+
+                            </li>
+                            <li class="frame" id="frame7">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(ref State next, ref Scope scope, ref object state, ref bool isCompleted)</h3>
+
+                            </li>
+                            <li class="frame" id="frame8">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()</h3>
+
+                            </li>
+                            <li class="frame" id="frame9">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()</h3>
+
+                            </li>
+                            <li class="frame" id="frame10">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)</h3>
+
+                            </li>
+                            <li class="frame" id="frame11">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(ref State next, ref Scope scope, ref object state, ref bool isCompleted)</h3>
+
+                            </li>
+                            <li class="frame" id="frame12">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()</h3>
+
+                            </li>
+                            <li class="frame" id="frame13">
+                                    <h3>Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()</h3>
+
+                            </li>
+                            <li class="frame" id="frame14">
+                                    <h3>Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)</h3>
+
+                            </li>
+                            <li class="frame" id="frame15">
+                                    <h3>Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)</h3>
+
+                            </li>
+                            <li class="frame" id="frame16">
+                                    <h3>Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)</h3>
+
+                            </li>
+                            <li class="frame" id="frame17">
+                                    <h3>Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)</h3>
+
+                            </li>
+                            <li class="frame" id="frame18">
+                                    <h3>Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)</h3>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <br/>
+                        <div class="rawExceptionBlock">
+                            <div class="showRawExceptionContainer">
+                                <button class="showRawException" data-exceptionDetailId="exceptionDetail1">Show raw exception details</button>
+                            </div>
+                            <div id="exceptionDetail1" class="rawExceptionDetails">
+                                <pre class="rawExceptionStackTrace">System.NullReferenceException: Object reference not set to an instance of an object.&#xD;&#xA;   at Infraestructure.Transversal.Authentication.UserService.AuthenticateAsync(String username, String password) in D:\iTrebolSoft\WebApplication_CodiJob\Infraestructure.Transversal\Authentication\UserService.cs:line 45&#xD;&#xA;   at CodiJobServices2.Controllers.AuthenticationController.LogIn(LoginDTO login) in D:\iTrebolSoft\WebApplication_CodiJob\WebApplication_CodiJob\Controllers\AuthenticationController.cs:line 21&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()&#xD;&#xA;   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()&#xD;&#xA;   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)&#xD;&#xA;   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)&#xD;&#xA;   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)&#xD;&#xA;   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)&#xD;&#xA;   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)</pre>
+                            </div>
+                        </div>
+                    </li>
+            </ul>
+        </div>
+
+        <div id="querypage" class="page">
+                <p>No QueryString data.</p>
+        </div>
+
+        <div id="cookiespage" class="page">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>.AspNet.Consent</td>
+                                <td>yes</td>
+                            </tr>
+                            <tr>
+                                <td>.AspNetCore.Antiforgery.cSQr09w1eRc</td>
+                                <td>CfDJ8Ex4yD6O7dJGqMFl0t_U5UN1dgfqfXITKteBcPLD3DCdY8TSfqpoitQDCvmt5iiLiCyfFEhGw6Xlu7qzXyMg3gJSLYxcTRYWmKMZmu4lc_SOpwMkGgKhNxbnEQVWGYXYxAb_PZ_S8drGZ9YK6B8_aDQ</td>
+                            </tr>
+                            <tr>
+                                <td>.AspNetCore.Antiforgery.KsjdzYXrFnI</td>
+                                <td>CfDJ8Ex4yD6O7dJGqMFl0t_U5UNdNkrACfXMNYWC6leDL9PseO7GdqnkO23a3pevmeqv9Ouv2wI0Ps-zqwDEbu_GBiwiNkHKxG1HKCT5zRYMc-AFUdpuLkz4ohoY3WDFN4UxoyEKH5o6od0WdWIa7mL7t8U</td>
+                            </tr>
+                            <tr>
+                                <td>.AspNetCore.Antiforgery.PnT6ijbk-W8</td>
+                                <td>CfDJ8Ex4yD6O7dJGqMFl0t_U5UOr6928Srn0w4kwsJK5vaj61aFv_gO3GxBrxoavj9WfMq8jRHrWyet55NwRz-P2nSfpzu4GzbsxFNm5QgXMKrJAgMyZSaUBa5ZmWjwvtY7H_fqctAySVaTOcA5ZAbQ15hQ</td>
+                            </tr>
+                            <tr>
+                                <td>.AspNetCore.Antiforgery.XMgPFbC1vN4</td>
+                                <td>CfDJ8Ex4yD6O7dJGqMFl0t_U5UPNHS6r6_GOO4LWJlx8Pi_WbOZ2-BRkll0Xr4S1o4uupM1rJ1xUrWGfqGytEwtHF09LWlgwfPFUcaj9PPm4_oVgA9YgS34VqLxyF79W6E97a-FPmnTxGHZhPQYlJUXBbfU</td>
+                            </tr>
+                            <tr>
+                                <td>io</td>
+                                <td>ZkJ7E9dnPu9buk6WAAAA</td>
+                            </tr>
+                    </tbody>
+                </table>
+        </div>
+        <div id="headerspage" class="page">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                <tr>
+                                    <td>Accept</td>
+                                    <td>application/json</td>
+                                </tr>
+                                <tr>
+                                    <td>Accept-Encoding</td>
+                                    <td>gzip, deflate, br</td>
+                                </tr>
+                                <tr>
+                                    <td>Accept-Language</td>
+                                    <td>es-ES,es;q=0.9,es-PE;q=0.8,en;q=0.7</td>
+                                </tr>
+                                <tr>
+                                    <td>Connection</td>
+                                    <td>Keep-Alive</td>
+                                </tr>
+                                <tr>
+                                    <td>Content-Length</td>
+                                    <td>53</td>
+                                </tr>
+                                <tr>
+                                    <td>Content-Type</td>
+                                    <td>application/json-patch&#x2B;json</td>
+                                </tr>
+                                <tr>
+                                    <td>Cookie</td>
+                                    <td>.AspNetCore.Antiforgery.KsjdzYXrFnI=CfDJ8Ex4yD6O7dJGqMFl0t_U5UNdNkrACfXMNYWC6leDL9PseO7GdqnkO23a3pevmeqv9Ouv2wI0Ps-zqwDEbu_GBiwiNkHKxG1HKCT5zRYMc-AFUdpuLkz4ohoY3WDFN4UxoyEKH5o6od0WdWIa7mL7t8U; .AspNetCore.Antiforgery.XMgPFbC1vN4=CfDJ8Ex4yD6O7dJGqMFl0t_U5UPNHS6r6_GOO4LWJlx8Pi_WbOZ2-BRkll0Xr4S1o4uupM1rJ1xUrWGfqGytEwtHF09LWlgwfPFUcaj9PPm4_oVgA9YgS34VqLxyF79W6E97a-FPmnTxGHZhPQYlJUXBbfU; .AspNetCore.Antiforgery.cSQr09w1eRc=CfDJ8Ex4yD6O7dJGqMFl0t_U5UN1dgfqfXITKteBcPLD3DCdY8TSfqpoitQDCvmt5iiLiCyfFEhGw6Xlu7qzXyMg3gJSLYxcTRYWmKMZmu4lc_SOpwMkGgKhNxbnEQVWGYXYxAb_PZ_S8drGZ9YK6B8_aDQ; .AspNet.Consent=yes; .AspNetCore.Antiforgery.PnT6ijbk-W8=CfDJ8Ex4yD6O7dJGqMFl0t_U5UOr6928Srn0w4kwsJK5vaj61aFv_gO3GxBrxoavj9WfMq8jRHrWyet55NwRz-P2nSfpzu4GzbsxFNm5QgXMKrJAgMyZSaUBa5ZmWjwvtY7H_fqctAySVaTOcA5ZAbQ15hQ; io=ZkJ7E9dnPu9buk6WAAAA</td>
+                                </tr>
+                                <tr>
+                                    <td>Host</td>
+                                    <td>localhost:44333</td>
+                                </tr>
+                                <tr>
+                                    <td>MS-ASPNETCORE-TOKEN</td>
+                                    <td>9633f362-4955-4120-aa31-050808a4ef63</td>
+                                </tr>
+                                <tr>
+                                    <td>Origin</td>
+                                    <td>https://localhost:44333</td>
+                                </tr>
+                                <tr>
+                                    <td>Referer</td>
+                                    <td>https://localhost:44333/swagger/index.html</td>
+                                </tr>
+                                <tr>
+                                    <td>User-Agent</td>
+                                    <td>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36</td>
+                                </tr>
+                                <tr>
+                                    <td>X-Original-For</td>
+                                    <td>127.0.0.1:50459</td>
+                                </tr>
+                                <tr>
+                                    <td>X-Original-Proto</td>
+                                    <td>http</td>
+                                </tr>
+                    </tbody>
+                </table>
+        </div>
+        <script>
+            //<!--
+            (function (window, undefined) {
+    "use strict";
+
+    function ns(selector, element) {
+        return new NodeCollection(selector, element);
+    }
+
+    function NodeCollection(selector, element) {
+        this.items = [];
+        element = element || window.document;
+
+        var nodeList;
+
+        if (typeof (selector) === "string") {
+            nodeList = element.querySelectorAll(selector);
+            for (var i = 0, l = nodeList.length; i < l; i++) {
+                this.items.push(nodeList.item(i));
+            }
+        }
+    }
+
+    NodeCollection.prototype = {
+        each: function (callback) {
+            for (var i = 0, l = this.items.length; i < l; i++) {
+                callback(this.items[i], i);
+            }
+            return this;
+        },
+
+        children: function (selector) {
+            var children = [];
+
+            this.each(function (el) {
+                children = children.concat(ns(selector, el).items);
+            });
+
+            return ns(children);
+        },
+
+        hide: function () {
+            this.each(function (el) {
+                el.style.display = "none";
+            });
+
+            return this;
+        },
+
+        toggle: function () {
+            this.each(function (el) {
+                el.style.display = el.style.display === "none" ? "" : "none";
+            });
+
+            return this;
+        },
+
+        show: function () {
+            this.each(function (el) {
+                el.style.display = "";
+            });
+
+            return this;
+        },
+
+        addClass: function (className) {
+            this.each(function (el) {
+                var existingClassName = el.className,
+                    classNames;
+                if (!existingClassName) {
+                    el.className = className;
+                } else {
+                    classNames = existingClassName.split(" ");
+                    if (classNames.indexOf(className) < 0) {
+                        el.className = existingClassName + " " + className;
+                    }
+                }
+            });
+
+            return this;
+        },
+
+        removeClass: function (className) {
+            this.each(function (el) {
+                var existingClassName = el.className,
+                    classNames, index;
+                if (existingClassName === className) {
+                    el.className = "";
+                } else if (existingClassName) {
+                    classNames = existingClassName.split(" ");
+                    index = classNames.indexOf(className);
+                    if (index > 0) {
+                        classNames.splice(index, 1);
+                        el.className = classNames.join(" ");
+                    }
+                }
+            });
+
+            return this;
+        },
+
+        attr: function (name) {
+            if (this.items.length === 0) {
+                return null;
+            }
+
+            return this.items[0].getAttribute(name);
+        },
+
+        on: function (eventName, handler) {
+            this.each(function (el, idx) {
+                var callback = function (e) {
+                    e = e || window.event;
+                    if (!e.which && e.keyCode) {
+                        e.which = e.keyCode; // Normalize IE8 key events
+                    }
+                    handler.apply(el, [e]);
+                };
+
+                if (el.addEventListener) { // DOM Events
+                    el.addEventListener(eventName, callback, false);
+                } else if (el.attachEvent) { // IE8 events
+                    el.attachEvent("on" + eventName, callback);
+                } else {
+                    el["on" + type] = callback;
+                }
+            });
+
+            return this;
+        },
+
+        click: function (handler) {
+            return this.on("click", handler);
+        },
+
+        keypress: function (handler) {
+            return this.on("keypress", handler);
+        }
+    };
+
+    function frame(el) {
+        ns(".source .collapsible", el).toggle();
+    }
+
+    function expandCollapseButton(el) {
+        var frameId = el.getAttribute("data-frameId");
+        frame(document.getElementById(frameId));
+        if (el.innerText === "+") {
+            el.innerText = "-";
+        }
+        else {
+            el.innerText = "+";
+        }
+    }
+
+    function tab(el) {
+        var unselected = ns("#header .selected").removeClass("selected").attr("id");
+        var selected = ns("#" + el.id).addClass("selected").attr("id");
+
+        ns("#" + unselected + "page").hide();
+        ns("#" + selected + "page").show();
+    }
+
+    ns(".rawExceptionDetails").hide();
+    ns(".collapsible").hide();
+    ns(".page").hide();
+    ns("#stackpage").show();
+
+    ns(".expandCollapseButton")
+        .click(function () {
+            expandCollapseButton(this);
+        })
+        .keypress(function (e) {
+            if (e.which === 13) {
+                expandCollapseButton(this);
+            }
+        });
+
+    ns("#header li")
+        .click(function () {
+            tab(this);
+        })
+        .keypress(function (e) {
+            if (e.which === 13) {
+                tab(this);
+            }
+        });
+
+    ns(".showRawException")
+        .click(function () {
+            var exceptionDetailId = this.getAttribute("data-exceptionDetailId");
+            ns("#" + exceptionDetailId).toggle();
+        });
+})(window);
+            //-->
+        </script>
+    </body>
+</html>
