@@ -10,11 +10,12 @@ namespace Infraestructure.Transversal.Swagger
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1.0", new Info { Title = "CodiJobService API v1.0", Version = "v1.0" });
+                var contacto = new Contact { Name = "Daniel I. Cabana", Email = "trebolman@gmail.com", Url = "itrebolsoft.com" };
+                c.SwaggerDoc("v1.0", new Info { Title = "CodiJob_API API v1.0", Version = "v1.0", Contact = contacto });
                 var security = new Dictionary<string, IEnumerable<string>>
-{
-{"Bearer", new string[] { }},
-};
+                {
+                {"Bearer", new string[] { }},
+                };
                 c.AddSecurityDefinition("Bearer", new ApiKeyScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",

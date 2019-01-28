@@ -52,5 +52,14 @@ namespace Infraestructure.Repositories
             }
             Context.SaveChangesAsync();
         }
+
+        public async Task SaveWithId(TUsuarioperfil entity)
+        {
+            if (entity.UsuperId != Guid.Empty)
+            {
+                Context.TUsuarioperfil.Add(entity);
+                await Context.SaveChangesAsync();
+            }
+        }
     }
 }

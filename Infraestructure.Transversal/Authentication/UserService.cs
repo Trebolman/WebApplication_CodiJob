@@ -1,10 +1,12 @@
 ﻿using Application.DTOs;
+using Application.DTOs.CustomDTO;
 using Application.IServices;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,6 +61,44 @@ namespace Infraestructure.Transversal.Authentication
                 }
             }
             return null;
+        }
+
+        public async Task AddUserAsync(AddUserDTO dto)
+        {
+            IdentityUser userExist = await userManager.FindByNameAsync(dto.UserName);
+            if (userExist == null)
+            {
+                Guid NewId = Guid.NewGuid();
+                userExist = new IdentityUser(dto.UserName);
+                userExist.Id = NewId.ToString();
+                IdentityResult result = await userManager.CreateAsync(userExist, dto.Password);
+                StringBuilder Stringerror = new StringBuilder();
+                foreach (var error in result.Errors)
+                {
+                    Stringerror.Append(error.Description);
+                    Stringerror.Append("\n");
+                }
+                if (result.Errors.Count() > 0)
+                {
+                    throw new Exception(Stringerror.ToString());
+                }
+                else
+                {
+                    UsuarioPerfilDTO usuartioPerfilDTO = new UsuarioPerfilDTO()
+                    {
+                        UsuperId = NewId,
+                        UsuperDesc = dto.Descripcion,
+                        UsuperGit = dto.Git,
+                        UsuperBlog = dto.Blog,
+                        UsuperWeb = dto.Web
+                    };
+                    await ServiceUsuarioPerfil.InsertWithID(usuartioPerfilDTO);
+                }
+            }
+            else
+            {
+                throw new Exception($"The username({dto.UserName}) is being used");
+            }
         }
     }
     public class AppSettings

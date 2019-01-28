@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.CustomDTO;
 using FluentValidation;
 
 namespace Infraestructure.Transversal.FluentValidations
