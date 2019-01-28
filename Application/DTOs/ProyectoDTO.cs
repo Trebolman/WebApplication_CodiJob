@@ -11,5 +11,6 @@ namespace Application.DTOs
         public string ProyDesc { get; set; }
         public DateTime? ProyFecha { get; set; }
         public string ProyUrl { get; set; }
+        public byte[] RowVersion { get; set; }
     }
 }

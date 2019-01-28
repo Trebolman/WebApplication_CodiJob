@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApplication_CodiJob.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class ProyectoController : Controller
     {
         public IProyectoService Service;
@@ -33,6 +34,7 @@ namespace WebApplication_CodiJob.Controllers
 
         // GET api/<controller>/5
         [HttpGet("{ProyId}")]
+        [Authorize]
         public ProyectoDTO Get(Guid ProyId)
         {
             return Service.GetAll().Where(p => p.ProyId == ProyId).FirstOrDefault();
@@ -40,6 +42,7 @@ namespace WebApplication_CodiJob.Controllers
 
         // POST api/<controller>
         [HttpPost]
+        [Authorize]
         //public IActionResult Post([FromBody]TProyecto proyecto)
         public IActionResult Post([FromBody] ProyectoDTO proyecto)
         {
@@ -54,6 +57,7 @@ namespace WebApplication_CodiJob.Controllers
 
         // PUT api/<controller>/5
         [HttpPut("{ProyId}")]
+        [Authorize]
         public IActionResult Put(Guid ProyectoId, [FromBody]ProyectoDTO proyecto)
         {
             proyecto.ProyId = ProyectoId;
@@ -63,6 +67,7 @@ namespace WebApplication_CodiJob.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("{ProyId}")]
+        [Authorize]
         public IActionResult Delete(Guid ProyectoId)
         {
             Service.Delete(ProyectoId);

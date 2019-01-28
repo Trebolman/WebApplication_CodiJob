@@ -1,10 +1,12 @@
 ﻿using Application.DTOs;
 using Infraestructure.Transversal.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 namespace CodiJobServices2.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class AuthenticationController : Controller
     {
         IUserService UserService;
@@ -14,6 +16,7 @@ namespace CodiJobServices2.Controllers
         }
 
         [HttpPost("LogIn")]
+        [AllowAnonymous]
         public async Task<IActionResult> LogIn([FromBody]LoginDTO login)
         {
             if (ModelState.IsValid)

@@ -38,7 +38,8 @@ namespace WebApplication_CodiJob
         {
             // agregamos el servicio que usa sql server y le enviamos la cadena de conexion
             // le estasmos agregando una cadena de conexion
-            services.AddDbContext<CodiJobDbContext>(options => options.UseSqlServer(Configuration["Data:CodiJob:ConnectionString"]));
+            services.AddDbContext<CodiJobDbContext>(options => options.UseSqlServer(
+                Configuration["Data:CodiJob:ConnectionString"], b=>b.MigrationsAssembly("WebApplication_CodiJob")));
 
             // le decimos al servicio su propia cadena de conexion
             // esto para que trabajen con diferentes bases de datos

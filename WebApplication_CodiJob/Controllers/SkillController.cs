@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.DTOs;
+using Application.IServices;
 using Domain;
 using Domain.IRepositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,43 +14,44 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApplication_CodiJob.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class SkillController : Controller
     {
-        public ISkillRepository repository;
+        public ISkillService Service;
         //Creando un constructor
-        public SkillController(ISkillRepository repo)
+        public SkillController(ISkillService service)
         {
-            this.repository = repo; //con esto, tenemos acceso a los repositorios
+            this.Service = service; //con esto, tenemos acceso a los repositorios
         }
 
         // GET: api/<controller>
         [HttpGet]
-        public IQueryable<TSkill> Get()
+        public IList<SkillDTO> Get()
         {
-            return repository.Items;
+            return Service.GetAll();
         }
 
         // GET api/<controller>/5
         [HttpGet("{SkillId}")]
-        public TSkill Get(Guid SkillId)
+        public SkillDTO Get(Guid SkillId)
         {
-            return repository.Items.Where(s => s.SkillId == SkillId).FirstOrDefault();
+            return Service.GetAll().Where(s => s.SkillId == SkillId).FirstOrDefault();
         }
 
         // POST api/<controller>
         [HttpPost]
-        public IActionResult Post([FromBody]TSkill skill)
+        public IActionResult Post([FromBody]SkillDTO skill)
         {
-            repository.Save(skill);
+            Service.Insert(skill);
             return Ok(true); //ok es codigo 200
         }
 
         // PUT api/<controller>/5
         [HttpPut("{SkillId}")]
-        public IActionResult Put(Guid SkillId, [FromBody]TSkill skill)
+        public IActionResult Put(Guid SkillId, [FromBody]SkillDTO skill)
         {
             skill.SkillId = SkillId;
-            repository.Save(skill);
+            Service.Insert(skill);
             return Ok(true);
         }
 
@@ -55,7 +59,7 @@ namespace WebApplication_CodiJob.Controllers
         [HttpDelete("{SkillId}")]
         public IActionResult Delete(Guid SkillId)
         {
-            repository.Delete(SkillId);
+            Service.Delete(SkillId);
             return Ok(200);
         }
 

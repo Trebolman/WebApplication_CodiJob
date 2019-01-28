@@ -38,7 +38,9 @@ namespace Infraestructure.Persistencia
             {
                 entity.ToTable("t_grupo");
 
-                entity.Property(e => e.Id)
+                entity.HasKey(e => e.GrupoId);
+
+                entity.Property(e => e.GrupoId)
                     .HasColumnName("id")
                     .ValueGeneratedNever();
 

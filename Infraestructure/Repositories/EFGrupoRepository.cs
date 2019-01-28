@@ -17,15 +17,15 @@ namespace Infraestructure.Repositories
         }
         public void Save(TGrupo grupo)
         {
-            if (grupo.Id == Guid.Empty)
+            if (grupo.GrupoId == Guid.Empty)
             {
-                grupo.Id = Guid.NewGuid();
+                grupo.GrupoId = Guid.NewGuid();
                 context.TGrupo.Add(grupo);
             }
             else
             {
                 TGrupo dbEntry = context.TGrupo
-                .FirstOrDefault(g => g.Id == grupo.Id);
+                .FirstOrDefault(g => g.GrupoId == grupo.GrupoId);
                 if (dbEntry != null)
                 {
                     dbEntry.GrupoNom = grupo.GrupoNom;
@@ -40,7 +40,7 @@ namespace Infraestructure.Repositories
         public void Delete(Guid GrupoID)
         {
             TGrupo dbEntry = context.TGrupo
-            .FirstOrDefault(g => g.Id == GrupoID);
+            .FirstOrDefault(g => g.GrupoId == GrupoID);
             if (dbEntry != null)
             {
                 context.TGrupo.Remove(dbEntry);

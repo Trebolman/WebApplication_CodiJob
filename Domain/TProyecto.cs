@@ -15,7 +15,7 @@ namespace Domain
         public string ProyDesc { get; set; }
         public DateTime? ProyFecha { get; set; }
         public string ProyUrl { get; set; }
-
+        public byte[] RowVersion { get; set; } //Es para usar concurrencia optimista, byte es tipo hora, minutos, segundos. 
         public ICollection<TUsuarioproyecto> TUsuarioproyecto { get; set; }
     }
 }

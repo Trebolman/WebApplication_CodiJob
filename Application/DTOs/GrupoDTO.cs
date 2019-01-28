@@ -6,7 +6,7 @@ namespace Application.DTOs
 {
     public class GrupoDTO
     {
-        public Guid Id { get; set; }
+        public Guid GrupoId { get; set; }
         public string GrupoNom { get; set; }
         public string GrupoFoto { get; set; }
         public string GrupoProm { get; set; }
